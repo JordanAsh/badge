@@ -6,7 +6,7 @@ This code was built by modifying [Kuan-Hao Huang's deep active learning reposito
 # Dependencies
 
 To run this code fully, you'll need [PyTorch](https://pytorch.org/) (we're using version 1.4.0), [scikit-learn](https://scikit-learn.org/stable/), and [OpenML](https://github.com/openml/openml-python).
-We've been running our code with Python 3.7.
+We've been running our code in Python 3.7.
 
 # Running an experiment
 
