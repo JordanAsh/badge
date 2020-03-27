@@ -18,6 +18,7 @@ This code allows you to also run each of the baseline algorithms used in our pap
 runs an active learning experiment using an MLP and dataset number 6 from OpenML, querying batches of 10,000 with confidence sampling.
 Note that in our code, OpenML datasets can only be used with MLP architectures.
  
-
+# Analyzing experimental results
+See the readme file in `scripts/` for more details about generating plots that compares BADGE and other algorithms.
 
 
