@@ -27,7 +27,7 @@ from query_strategies import RandomSampling, BadgeSampling, \
 parser = argparse.ArgumentParser()
 parser.add_argument('--alg', help='acquisition algorithm', type=str, default='rand')
 parser.add_argument('--did', help='openML dataset index, if any', type=int, default=0)
-parser.add_argument('--lr', help='learning rate', type=float, default=1e-3)
+parser.add_argument('--lr', help='learning rate', type=float, default=1e-4)
 parser.add_argument('--model', help='model - resnet, vgg, or mlp', type=str, default='mlp')
 parser.add_argument('--path', help='data path', type=str, default='data')
 parser.add_argument('--data', help='dataset (non-openML)', type=str, default='')
