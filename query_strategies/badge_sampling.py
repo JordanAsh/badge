@@ -66,13 +66,10 @@ def init_centers(X, K):
         Ddist = (D2 ** 2)/ sum(D2 ** 2)
         customDist = stats.rv_discrete(name='custm', values=(np.arange(len(D2)), Ddist))
         ind = customDist.rvs(size=1)[0]
+        while ind in indsAll: ind = customDist.rvs(size=1)[0]
         mu.append(X[ind])
         indsAll.append(ind)
         cent += 1
-    gram = np.matmul(X[indsAll], X[indsAll].T)
-    val, _ = np.linalg.eig(gram)
-    val = np.abs(val)
-    vgt = val[val > 1e-2]
     return indsAll
 
 class BadgeSampling(Strategy):
