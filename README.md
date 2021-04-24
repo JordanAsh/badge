@@ -1,6 +1,6 @@
 # Batch Active learning by Diverse Gradient Embeddings (BADGE)
 An implementation of the BADGE batch active learning algorithm. Details are provided in our article, 
-[Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds](https://arxiv.org/abs/1906.03671), which will appear as a talk in ICLR 2020.
+[Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds](https://arxiv.org/abs/1906.03671), which was presented as a talk in ICLR 2020.
 This code was built by modifying [Kuan-Hao Huang's deep active learning repository](https://github.com/ej0cl6/deep-active-learning).
 
 # Dependencies
