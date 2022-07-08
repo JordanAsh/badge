@@ -22,7 +22,6 @@ import argparse
 import torch.nn as nn
 from collections import OrderedDict
 from scipy import stats
-import time
 import numpy as np
 import scipy.sparse as sp
 from itertools import product
@@ -39,7 +38,7 @@ from sklearn.utils import check_random_state
 from sklearn.utils.validation import check_is_fitted
 from sklearn.utils.validation import FLOAT_DTYPES
 from sklearn.metrics.pairwise import rbf_kernel as rbf
-from sklearn.externals.six import string_types
+#from sklearn.externals.six import string_types
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.metrics import pairwise_distances
 
@@ -79,5 +78,5 @@ class BadgeSampling(Strategy):
     def query(self, n):
         idxs_unlabeled = np.arange(self.n_pool)[~self.idxs_lb]
         gradEmbedding = self.get_grad_embedding(self.X[idxs_unlabeled], self.Y.numpy()[idxs_unlabeled]).numpy()
-        chosen = init_centers(gradEmbedding, n),
+        chosen = init_centers(gradEmbedding, n)
         return idxs_unlabeled[chosen]
