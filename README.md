@@ -3,7 +3,7 @@ An implementation of the BADGE batch active learning algorithm. Details are prov
 [Deep Batch Active Learning by Diverse, Uncertain Gradient Lower Bounds](https://arxiv.org/abs/1906.03671), which was presented as a talk in ICLR 2020.
 This code was built by modifying [Kuan-Hao Huang's deep active learning repository](https://github.com/ej0cl6/deep-active-learning).
 
-**Update:** We now think of BADGE as an approximation of a more general algorithm, [Batch Active Learning by Information maTrices (BAIT)](https://arxiv.org/abs/2106.09675), which was published in NeurIPS 2021. The classification version of BAIT has been added to this repository.
+**Update:** We now think of BADGE as an approximation of a more general algorithm, [Batch Active Learning via Information maTrices (BAIT)](https://arxiv.org/abs/2106.09675), which was published in NeurIPS 2021. The classification version of BAIT has been added to this repository.
 
 # Dependencies
 
