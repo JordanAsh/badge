@@ -44,18 +44,20 @@ from sklearn.metrics import pairwise_distances
 
 # kmeans ++ initialization
 def init_centers(X, K):
-    ind = np.argmax([np.linalg.norm(s, 2) for s in X])
-    mu = [X[ind]]
+    embs = torch.Tensor(embs)
+    ind = torch.argmax(torch.norm(embs, 2, 1)).item()
+    embs = embs.cuda()
+    mu = [embs[ind]]
     indsAll = [ind]
-    centInds = [0.] * len(X)
+    centInds = [0.] * len(embs)
     cent = 0
     print('#Samps\tTotal Distance')
     while len(mu) < K:
         if len(mu) == 1:
-            D2 = pairwise_distances(X, mu).ravel().astype(float)
+            D2 = torch.cdist(mu[-1].view(1,-1), embs, 2)[0].cpu().numpy()
         else:
-            newD = pairwise_distances(X, [mu[-1]]).ravel().astype(float)
-            for i in range(len(X)):
+            newD = torch.cdist(mu[-1].view(1,-1), embs, 2)[0].cpu().numpy()
+            for i in range(len(embs)):
                 if D2[i] >  newD[i]:
                     centInds[i] = cent
                     D2[i] = newD[i]
@@ -66,9 +68,10 @@ def init_centers(X, K):
         customDist = stats.rv_discrete(name='custm', values=(np.arange(len(D2)), Ddist))
         ind = customDist.rvs(size=1)[0]
         while ind in indsAll: ind = customDist.rvs(size=1)[0]
-        mu.append(X[ind])
+        mu.append(embs[ind])
         indsAll.append(ind)
         cent += 1
+    return indsAll
     return indsAll
 
 class BadgeSampling(Strategy):
