@@ -44,7 +44,7 @@ from sklearn.metrics import pairwise_distances
 
 # kmeans ++ initialization
 def init_centers(X, K):
-    embs = torch.Tensor(embs)
+    embs = torch.Tensor(X)
     ind = torch.argmax(torch.norm(embs, 2, 1)).item()
     embs = embs.cuda()
     mu = [embs[ind]]
@@ -71,7 +71,6 @@ def init_centers(X, K):
         mu.append(embs[ind])
         indsAll.append(ind)
         cent += 1
-    return indsAll
     return indsAll
 
 class BadgeSampling(Strategy):
