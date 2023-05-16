@@ -188,7 +188,6 @@ class mlpMod(nn.Module):
         self.embSize = embSize
         self.dim = int(np.prod(dim))
         self.lm1 = nn.Linear(self.dim, embSize)
-        self.lm2 = nn.Linear(embSize, embSize)
         self.linear = nn.Linear(embSize, opts.nClasses, bias=False)
         self.useNonLin = useNonLin
     def forward(self, x):
