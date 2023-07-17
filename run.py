@@ -53,7 +53,7 @@ DATA_NAME = opts.data
 
 # regularization settings for bait
 opts.lamb = 1
-if 'CIFAR' in opts.data: args.lamb = 1e-2
+if 'CIFAR' in opts.data: opts.lamb = 1e-2
 
 # non-openml data defaults
 args_pool = {'MNIST':
