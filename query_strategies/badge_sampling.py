@@ -122,7 +122,7 @@ class BadgeSampling(Strategy):
         embs = embs.numpy()
         probs = probs.numpy()
 
-        # the logic below reflects a speedup proposed by Zhang et. al  
+        # the logic below reflects a speedup proposed by Zhang et al.
         # see Appendix D of https://arxiv.org/abs/2306.09910 for more details
         m = (~self.idxs_lb).sum()
         mu = None
