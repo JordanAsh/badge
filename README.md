@@ -5,7 +5,7 @@ This code was built by modifying [Kuan-Hao Huang's deep active learning reposito
 
 **Update 1:** We now understand BADGE to be an approximation of a more general algorithm, [Batch Active Learning via Information maTrices (BAIT)](https://arxiv.org/abs/2106.09675), which we published in NeurIPS 2021. The classification variant of BAIT has been added to this repository for completeness.
 
-**Update 2:** It turns out that it's sometimes more natural to consider batch active learning in the streaming setting, instead of in a fixed pool. If that's a better fit for your problem, check out [this paper](https://arxiv.org/abs/2303.02535), published in ICML 2023, or the [corresponding repo](https://github.com/asaran/vessal).
+**Update 2:** It turns out that it's sometimes more natural to consider batch active learning in the streaming setting, instead of in a fixed-pool setting. If that's a better fit for your problem, check out [this paper](https://arxiv.org/abs/2303.02535), published in ICML 2023, or the [corresponding code](https://github.com/asaran/vessal).
 
 # Dependencies
 
