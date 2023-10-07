@@ -300,17 +300,21 @@ class Strategy:
                     probs[i][idxs] += F.softmax(out, dim=1).cpu().data
             return probs
 
-    def get_embedding(self, X, Y):
+    def get_embedding(self, X, Y, return_probs=False):
         loader_te = DataLoader(self.handler(X, Y, transform=self.args['transformTest']),
                             shuffle=False, **self.args['loader_te_args'])
         self.clf.eval()
         embedding = torch.zeros([len(Y), self.clf.get_embedding_dim()])
+        probs = torch.zeros(len(Y), self.clf.linear.out_features)
         with torch.no_grad():
             for x, y, idxs in loader_te:
                 x, y = Variable(x.cuda()), Variable(y.cuda())
                 out, e1 = self.clf(x)
                 embedding[idxs] = e1.data.cpu()
-        
+                if return_probs:
+                     pr = F.softmax(out,1)
+                     probs[idxs] = pr.data.cpu()
+        if return_probs: return embedding, probs
         return embedding
 
     # gradient embedding for badge (assumes cross-entropy loss)
